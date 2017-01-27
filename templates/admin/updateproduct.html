@@ -1,0 +1,72 @@
+<div class="admin-panel__content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-header">
+                <h1>Update Product</h1>
+            </div>
+
+            <?php if(strlen($error)>0) { ?>
+            <div class="alert alert-danger">
+                <p><?php echo $error; ?></p>
+            </div>
+            <?php } ?>
+
+
+            <?php if(strlen($success)>0) { ?>
+            <div class="alert alert-success">
+                <p><?php echo $success; ?> to view products <a href="products.php">click here</a> </p>
+            </div>
+            <?php } ?>
+
+        </div>
+        <div class="col-md-8">
+            <form class="form-horizontal" action="updateproduct.php" method="post" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="product-title" class="col-sm-3 control-label">Product Title</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="title" class="form-control" id="product-title" value="<?php echo $product['title']; ?>" placeholder="Product Title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="product-desc" class="col-sm-3 control-label">Product Description</label>
+                    <div class="col-sm-9">
+                        <textarea rows="6" name="description" class="form-control" id="product-desc" placeholder="Product Description"><?php echo $product['description']; ?></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="product-price" class="col-sm-3 control-label">Product Price</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="price" class="form-control" id="product-price"  value="<?php echo $product['price']; ?>" placeholder="Product Price">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="product-availability" class="col-sm-3 control-label">Product Availability</label>
+                    <div class="col-sm-9">
+
+                        <select name="available" class="form-control" id="product-availability">
+                            <option value="1" <?php echo ($product['available'] == 1)? 'selected':''; ?> >Available</option>
+                            <option value="0" <?php echo ($product['available'] == 0)? 'selected':''; ?>>Not Available</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="product-image" class="col-sm-3 control-label">Product Image</label>
+                    <img src="../uploads/<?php echo $product['image']; ?>" width="150" height="150" >
+                    <div class="col-sm-9">
+                        <input type="file" name="image" class="form-control" id="product-image">
+                    </div>
+                </div>
+                <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Update Product</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>

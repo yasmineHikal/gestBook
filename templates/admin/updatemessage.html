@@ -1,0 +1,51 @@
+<div class="admin-panel__content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-header">
+                <h1>Update Message</h1>
+            </div>
+
+            <?php if(strlen($error)>0) { ?>
+            <div class="alert alert-danger">
+                <p><?php echo $error; ?></p>
+            </div>
+            <?php } ?>
+
+
+            <?php if(strlen($success)>0) { ?>
+            <div class="alert alert-success">
+                <p><?php echo $success; ?> </p>
+            </div>
+            <?php }else{ ?>
+
+
+        </div>
+        <div class="col-md-8">
+            <form class="form-horizontal" action="updatemessage.php" method="post">
+
+                <div class="form-group">
+                    <label for="product-title" class="col-sm-3 control-label">Message Title</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="title" class="form-control" value="<?php echo $message['title']; ?>" id="product-title" placeholder="Product Title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="product-desc" class="col-sm-3 control-label">Message Content</label>
+                    <div class="col-sm-9">
+                        <textarea rows="6" name="content" class="form-control" id="product-desc" placeholder="message content"><?php echo $message['content']; ?></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <input type="hidden" name="id" value="<?php echo $message['id']; ?>">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Update Message</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <?php } ?>
+</div>

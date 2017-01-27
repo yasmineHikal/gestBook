@@ -1,0 +1,26 @@
+<div class="admin-panel__content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-header">
+                <h1>Result</h1>
+            </div>
+
+            <?php if(strlen($error)>0) { ?>
+            <div class="alert alert-danger">
+                <p><?php echo $error; ?></p>
+            </div>
+            <?php } ?>
+
+
+            <?php if(strlen($success)>0) { ?>
+            <div class="alert alert-success">
+                <p><?php echo $success; ?></p>
+            </div>
+            <?php } ?>
+
+
+        </div>
+
+    </div>
+</div>

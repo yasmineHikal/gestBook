@@ -1,0 +1,48 @@
+<div class="admin-panel__content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-header">
+                <h1>All Products</h1>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <table class="table table-hover table-bordered table-content">
+                <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Product Description</th>
+                    <th>Product Availability</th>
+                    <th>Product Image</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach($allProducts as $product){
+
+                    $id = $product['id'];
+                    $title = $product['title'];
+                    $description = $product['description'];
+                    $image = $product['image'];
+                    $price = $product['price'];
+                    $available = $product['available'];
+                ?>
+                <tr>
+                    <td class="product-name"><?php echo $title; ?></td>
+                    <td class="product-price"><?php echo $price; ?></td>
+                    <td class="product-desc"><?php echo $description; ?></td>
+                    <td class="product-available"><?php echo ($available == 1)? 'Available':'Not Available'; ?></td>
+                    <td class="product-image"><img src="../uploads/<?php echo $image; ?>" alt=""></td>
+                    <td class="product-options">
+                        <a href="updateproduct.php?id=<?php echo $id; ?>" class="btn btn-success">Edit</a>
+                        <a href="deleteproduct.php?id=<?php echo $id; ?>" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,36 @@
+<div class="col-md-12">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header">
+                            <h1>Product Info</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row product-info">
+                    <div class="col-md-8">
+                        <div class="product-info__title">
+                            <h2><?php echo $product['title']; ?></h2>
+                        </div>
+                        <div class="product-info__price">
+                            <strong>Product Price:</strong> <span><?php echo $product['price']; ?><sup>EGP</sup></span>
+                        </div>
+                        <div class="product-info__available">
+                            <strong>Product Availability:</strong> <span><?php echo ($product['available']==1)? 'Available':'Not Avaiable' ; ?></span>
+                        </div>
+                        <div class="product-info__desc">
+                            <h2>Product Description:</h2>
+                            <p><?php echo $product['description']; ?>.</p>
+                        </div>
+                        <br />
+                        <a href="#" class="btn btn-lg btn-danger"><i class="fa fa-shopping-cart"></i> Buy Now</a>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-info__image">
+                            <img src="uploads/<?php echo $product['image']; ?>" class="img-responsive" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
